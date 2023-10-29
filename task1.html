@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task1</title>
+</head>
+<body>
+<script>
+    const random = (b) => {
+        let rnd = Math.random() * b
+        return Math.round(rnd)
+    }
+    window.onload = () => {
+            let interval = setInterval(() => {
+                document.body.style.background = `rgb(${random(255)}, ${random(255)}, ${random(255)})`
+            }, 300)
+    }
+</script>
+
+</body>
+</html>

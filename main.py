@@ -1,18 +1,24 @@
-# This is a sample Python script.
+import sqlite3
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+rg = sqlite3.connect('objects.db')
+cu = rg.cursor()
+
+cu.execute('''CREATE TABLE IF NOT EXISTS tab1(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    surname TEXT,
+    age INTEGER);
+''')
+cu.execute('''INSERT INTO tab1(name,surname,age)VALUES ('Egor','student',23);''')
+cu.execute('''INSERT INTO tab1(name,surname,age)VALUES ('Anton','student',25);''')
+cu.execute('''INSERT INTO tab1(name,surname,age)VALUES ('Dima','student',28);''')
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+rg.commit()
+
+cu.execute('''SELECT * From tab1;''')
+
+k=cu.fetchall()
+print(k)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-#gfhfhgf
-not attentive teacher
